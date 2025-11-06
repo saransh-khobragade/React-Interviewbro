@@ -31,21 +31,21 @@ const getQuestionById = (id: string): Question | null => {
 };
 
 const createQuestion = async (
-  questionData: CreateQuestionData,
+  _questionData: CreateQuestionData,
 ): Promise<Question> => {
   // Persistence is not available without storage
   throw new Error('Question creation is not supported. Questions are read-only from data.json');
 };
 
 const updateQuestion = async (
-  id: string,
-  questionData: UpdateQuestionData,
+  _id: string,
+  _questionData: UpdateQuestionData,
 ): Promise<Question> => {
   // Persistence is not available without storage
   throw new Error('Question updates are not supported. Questions are read-only from data.json');
 };
 
-const deleteQuestion = async (id: string): Promise<void> => {
+const deleteQuestion = async (_id: string): Promise<void> => {
   // Persistence is not available without storage
   throw new Error('Question deletion is not supported. Questions are read-only from data.json');
 };
