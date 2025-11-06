@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Card,
   CardContent,
@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import type { Question } from '@/types/interview';
 import { Badge } from '@/components/ui/badge';
 
@@ -15,8 +14,6 @@ interface QuestionCardProps {
 }
 
 export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
-  const [showSolution, setShowSolution] = useState(false);
-
   const getDifficultyColor = (
     difficulty: 'easy' | 'medium' | 'hard',
   ): string => {
@@ -30,6 +27,14 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
       default:
         return '';
     }
+  };
+
+  const getSolutionBullets = (solution: string): string[] => {
+    // Split by periods, semicolons, or newlines, then filter and trim
+    return solution
+      .split(/[.;]\s+|\n+/)
+      .map(s => s.trim())
+      .filter(s => s.length > 0);
   };
 
   return (
@@ -68,21 +73,16 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
 
         {question.solution !== undefined && question.solution !== '' && (
           <div className='mb-4'>
-            <Button
-              variant='outline'
-              size='sm'
-              onClick={() => {
-                setShowSolution(!showSolution);
-              }}
-              className='mb-2'
-            >
-              {showSolution ? 'Hide Solution' : 'Show Solution'}
-            </Button>
-            {showSolution && (
-              <div className='bg-muted p-3 rounded-sm mt-2'>
-                <p className='text-sm leading-relaxed'>{question.solution}</p>
-              </div>
-            )}
+            <h4 className='text-sm font-semibold mb-2'>Solution:</h4>
+            <div className='bg-muted p-3 rounded-sm'>
+              <ul className='list-disc list-inside space-y-1'>
+                {getSolutionBullets(question.solution).map((bullet, index) => (
+                  <li key={index} className='text-sm leading-relaxed'>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </CardContent>
