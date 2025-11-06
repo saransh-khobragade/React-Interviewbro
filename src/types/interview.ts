@@ -9,6 +9,7 @@ export interface Question {
   tags: string[];
   solution?: string;
   examples?: string[];
+  codeSnippet?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -21,6 +22,7 @@ export interface CreateQuestionData {
   tags: string[];
   solution?: string;
   examples?: string[];
+  codeSnippet?: string;
 }
 
 export interface UpdateQuestionData {
@@ -31,5 +33,6 @@ export interface UpdateQuestionData {
   tags?: string[];
   solution?: string;
   examples?: string[];
+  codeSnippet?: string;
 }
 

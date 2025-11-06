@@ -12,6 +12,7 @@
         "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]",
         "Input: nums = [3,2,4], target = 6\nOutput: [1,2]"
       ],
+      "codeSnippet": "function twoSum(nums: number[], target: number): number[] {\n  const map = new Map<number, number>();\n  \n  for (let i = 0; i < nums.length; i++) {\n    const complement = target - nums[i];\n    if (map.has(complement)) {\n      return [map.get(complement)!, i];\n    }\n    map.set(nums[i], i);\n  }\n  \n  return [];\n}",
       "createdAt": "2024-01-01T00:00:00.000Z",
       "updatedAt": "2024-01-01T00:00:00.000Z"
     },
@@ -26,6 +27,7 @@
       "examples": [
         "Input: head = [1,2,3,4,5]\nOutput: [5,4,3,2,1]"
       ],
+      "codeSnippet": "function reverseList(head: ListNode | null): ListNode | null {\n  let prev: ListNode | null = null;\n  let current = head;\n  \n  while (current !== null) {\n    const next = current.next;\n    current.next = prev;\n    prev = current;\n    current = next;\n  }\n  \n  return prev;\n}",
       "createdAt": "2024-01-02T00:00:00.000Z",
       "updatedAt": "2024-01-02T00:00:00.000Z"
     },
@@ -57,6 +59,7 @@
         "Park a truck in a large spot",
         "Find available spots for a motorcycle"
       ],
+      "codeSnippet": "enum VehicleType {\n  CAR,\n  MOTORCYCLE,\n  TRUCK\n}\n\nenum SpotSize {\n  SMALL,\n  COMPACT,\n  LARGE\n}\n\nclass Vehicle {\n  constructor(public type: VehicleType) {}\n}\n\nclass ParkingSpot {\n  constructor(\n    public id: number,\n    public size: SpotSize,\n    public isOccupied: boolean = false\n  ) {}\n}\n\nclass ParkingLot {\n  private spots: ParkingSpot[] = [];\n  \n  park(vehicle: Vehicle): boolean {\n    const spot = this.findAvailableSpot(vehicle.type);\n    if (spot) {\n      spot.isOccupied = true;\n      return true;\n    }\n    return false;\n  }\n  \n  private findAvailableSpot(type: VehicleType): ParkingSpot | null {\n    // Implementation for finding available spot\n    return null;\n  }\n}",
       "createdAt": "2024-01-04T00:00:00.000Z",
       "updatedAt": "2024-01-04T00:00:00.000Z"
     },

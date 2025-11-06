@@ -1,4 +1,6 @@
 import React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {
   Card,
   CardContent,
@@ -32,6 +34,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
   const getSolutionBullets = (solution: string): string[] => {
     // Split by periods, semicolons, or newlines, then filter and trim
     return solution
+      // eslint-disable-next-line require-unicode-regexp
       .split(/[.;]\s+|\n+/)
       .map(s => s.trim())
       .filter(s => s.length > 0);
@@ -71,18 +74,38 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
           </div>
         )}
 
+        {// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        question.codeSnippet && (
+          <div className='mb-4'>
+            <h4 className='text-sm font-semibold mb-2'>Code:</h4>
+            <div className='rounded-sm overflow-hidden'>
+              <SyntaxHighlighter
+                language='typescript'
+                style={vscDarkPlus}
+                customStyle={{
+                  margin: 0,
+                  fontSize: '0.75rem',
+                  lineHeight: '1.5',
+                  padding: '0.75rem',
+                }}
+                showLineNumbers={false}
+              >
+                {question.codeSnippet}
+              </SyntaxHighlighter>
+            </div>
+          </div>
+        )}
+
         {question.solution !== undefined && question.solution !== '' && (
           <div className='mb-4'>
             <h4 className='text-sm font-semibold mb-2'>Solution:</h4>
-            <div className='bg-muted p-3 rounded-sm'>
-              <ul className='list-disc list-inside space-y-1'>
-                {getSolutionBullets(question.solution).map((bullet, index) => (
-                  <li key={index} className='text-sm leading-relaxed'>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className='list-disc list-inside space-y-1'>
+              {getSolutionBullets(question.solution).map((bullet, index) => (
+                <li key={index} className='text-sm leading-relaxed'>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </CardContent>
