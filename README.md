@@ -6,28 +6,28 @@ A production-ready React boilerplate with strict TypeScript configuration, compr
 
 ```bash
 # Install dependencies
-yarn install
+bun install
 
 # Start development server
-yarn dev
+bun dev
 
 # Build for production
-yarn build
+bun build
 
 # Run linting
-yarn lint
+bun lint
 
 # Fix linting issues
-yarn lint:fix
+bun lint:fix
 
 # Format code
-yarn format
+bun format
 
 # Check formatting
-yarn format:check
+bun format:check
 
 # Type checking
-yarn type-check
+bun type-check
 ```
 
 ## 🎯 Features
@@ -101,7 +101,7 @@ yarn type-check
 
 ### **How to Use**
 
-1. **Start the Application**: Run `yarn dev` and open `http://localhost:5173`
+1. **Start the Application**: Run `bun dev` and open `http://localhost:5173`
 2. **Sign Up**: Create a new account with your details
 3. **Login**: Use your credentials to access the dashboard
 4. **Manage Users**:
@@ -162,7 +162,7 @@ yarn type-check
 
 The project includes a comprehensive component showcase and theme configuration panel:
 
-1. **Start the development server**: `yarn dev`
+1. **Start the development server**: `bun dev`
 2. **Open the app** in your browser
 3. **Click "Show Config"** to open the theme configuration panel
 4. **Explore components** in the interactive showcase
@@ -425,16 +425,16 @@ Try these commands to verify everything is working:
 
 ```bash
 # Test TypeScript compilation
-yarn type-check
+bun type-check
 
 # Test ESLint
-yarn lint
+bun lint
 
 # Test Prettier
-yarn format:check
+bun format:check
 
 # Test the application
-yarn dev
+bun dev
 ```
 
 ## 🔧 Debugging Common Errors
