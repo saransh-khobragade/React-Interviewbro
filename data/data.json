@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "title": "Two Sum",
+      "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+      "category": "data-structures",
+      "difficulty": "easy",
+      "tags": ["array", "hash-table"],
+      "solution": "Use a hash map to store each number and its index. For each number, check if target - number exists in the map.",
+      "examples": [
+        "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]",
+        "Input: nums = [3,2,4], target = 6\nOutput: [1,2]"
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Reverse Linked List",
+      "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+      "category": "data-structures",
+      "difficulty": "easy",
+      "tags": ["linked-list", "recursion"],
+      "solution": "Iterate through the list, reversing pointers. Use three pointers: prev, current, and next.",
+      "examples": [
+        "Input: head = [1,2,3,4,5]\nOutput: [5,4,3,2,1]"
+      ],
+      "createdAt": "2024-01-02T00:00:00.000Z",
+      "updatedAt": "2024-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Binary Tree Maximum Path Sum",
+      "description": "A path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge connecting them. Find the maximum path sum.",
+      "category": "data-structures",
+      "difficulty": "hard",
+      "tags": ["binary-tree", "dynamic-programming"],
+      "solution": "Use DFS to traverse the tree. For each node, calculate the maximum path sum that includes that node.",
+      "examples": [
+        "Input: root = [1,2,3]\nOutput: 6",
+        "Input: root = [-10,9,20,null,null,15,7]\nOutput: 42"
+      ],
+      "createdAt": "2024-01-03T00:00:00.000Z",
+      "updatedAt": "2024-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "title": "Design a Parking Lot System",
+      "description": "Design a parking lot system that can handle multiple types of vehicles and parking spots with different sizes.",
+      "category": "low-level-design",
+      "difficulty": "medium",
+      "tags": ["oop", "system-design", "parking-lot"],
+      "solution": "Create classes for Vehicle, ParkingSpot, and ParkingLot. Use enums for vehicle types and spot sizes. Implement methods for parking, unparking, and finding available spots.",
+      "examples": [
+        "Park a car in a compact spot",
+        "Park a truck in a large spot",
+        "Find available spots for a motorcycle"
+      ],
+      "createdAt": "2024-01-04T00:00:00.000Z",
+      "updatedAt": "2024-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "title": "Design a LRU Cache",
+      "description": "Design and implement a data structure for a Least Recently Used (LRU) cache with O(1) time complexity for get and put operations.",
+      "category": "low-level-design",
+      "difficulty": "hard",
+      "tags": ["cache", "doubly-linked-list", "hash-table"],
+      "solution": "Use a combination of HashMap and Doubly Linked List. HashMap provides O(1) access, and Doubly Linked List maintains the order of usage.",
+      "examples": [
+        "LRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1);\nlRUCache.put(2, 2);\nlRUCache.get(1);    // returns 1"
+      ],
+      "createdAt": "2024-01-05T00:00:00.000Z",
+      "updatedAt": "2024-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "title": "Design a Logger System",
+      "description": "Design a logger system that receives stream of messages along with their timestamps. Each message should be printed if and only if it is not printed in the last 10 seconds.",
+      "category": "low-level-design",
+      "difficulty": "easy",
+      "tags": ["logger", "hash-table"],
+      "solution": "Use a HashMap to store the last printed timestamp for each message. Check if the current timestamp is at least 10 seconds after the last printed timestamp.",
+      "examples": [
+        "Logger logger = new Logger();\nlogger.shouldPrintMessage(1, \"foo\"); // returns true"
+      ],
+      "createdAt": "2024-01-06T00:00:00.000Z",
+      "updatedAt": "2024-01-06T00:00:00.000Z"
+    },
+    {
+      "id": "7",
+      "title": "Design a URL Shortener (TinyURL)",
+      "description": "Design a service like TinyURL, a URL shortening service where you enter a URL and it returns a short URL such as tinyurl.com/4e9iAk.",
+      "category": "high-level-design",
+      "difficulty": "medium",
+      "tags": ["distributed-systems", "scalability", "database"],
+      "solution": "Use base62 encoding for short URLs. Store mappings in a database. Use load balancers, caching (Redis), and CDN for scalability. Consider rate limiting and analytics.",
+      "examples": [
+        "Input: https://www.example.com/very/long/url\nOutput: https://tinyurl.com/abc123"
+      ],
+      "createdAt": "2024-01-07T00:00:00.000Z",
+      "updatedAt": "2024-01-07T00:00:00.000Z"
+    },
+    {
+      "id": "8",
+      "title": "Design a Distributed Cache System",
+      "description": "Design a distributed caching system that can handle millions of requests per second with high availability and consistency.",
+      "category": "high-level-design",
+      "difficulty": "hard",
+      "tags": ["distributed-systems", "caching", "consistency"],
+      "solution": "Use consistent hashing for sharding. Implement replication with leader-follower pattern. Use cache eviction policies (LRU). Add monitoring and auto-scaling.",
+      "examples": [
+        "Handle cache misses gracefully",
+        "Maintain consistency across replicas",
+        "Scale horizontally"
+      ],
+      "createdAt": "2024-01-08T00:00:00.000Z",
+      "updatedAt": "2024-01-08T00:00:00.000Z"
+    },
+    {
+      "id": "9",
+      "title": "Design a Chat Application",
+      "description": "Design a real-time chat application like WhatsApp or Slack that supports one-on-one and group messaging.",
+      "category": "high-level-design",
+      "difficulty": "hard",
+      "tags": ["real-time", "messaging", "websockets"],
+      "solution": "Use WebSockets for real-time communication. Store messages in a database. Use message queues for reliability. Implement read receipts, typing indicators, and message delivery status.",
+      "examples": [
+        "Send messages in real-time",
+        "Support group chats with multiple participants",
+        "Handle offline message delivery"
+      ],
+      "createdAt": "2024-01-09T00:00:00.000Z",
+      "updatedAt": "2024-01-09T00:00:00.000Z"
+    }
+  ]
+}
