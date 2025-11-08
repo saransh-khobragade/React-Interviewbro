@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {
@@ -8,14 +8,21 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import type { Question } from '@/types/interview';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import type { Question } from '@/types/interview';
 
 interface QuestionCardProps {
   question: Question;
+  isHighlighted?: boolean;
 }
 
-export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
+export const QuestionCard: React.FC<QuestionCardProps> = ({
+  question,
+  isHighlighted = false,
+}) => {
+  const [copied, setCopied] = useState(false);
+
   const getDifficultyColor = (
     difficulty: 'easy' | 'medium' | 'hard',
   ): string => {
@@ -40,18 +47,77 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
       .filter(s => s.length > 0);
   };
 
+  const handleShare = (): void => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('q', question.id);
+    const shareUrl = url.toString();
+
+    // Copy to clipboard
+    void navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    });
+
+    // Update URL without reload
+    window.history.pushState({}, '', url.toString());
+  };
+
   return (
-    <Card className='hover:shadow-md transition-shadow'>
+    <Card
+      id={`question-${question.id}`}
+      className={`hover:shadow-md transition-shadow ${
+        isHighlighted ? 'ring-2 ring-primary ring-offset-2' : ''
+      }`}
+    >
       <CardHeader className='p-3 sm:p-6'>
-        <div className='flex items-start justify-between'>
+        <div className='flex items-start justify-between gap-2'>
           <div className='flex-1'>
             <CardTitle className='text-sm sm:text-lg mb-1 sm:mb-2'>{question.title}</CardTitle>
             <CardDescription className='text-[10px] sm:text-sm leading-relaxed'>
               {question.description}
             </CardDescription>
           </div>
+          <Button
+            variant='ghost'
+            size='sm'
+            onClick={handleShare}
+            className='shrink-0 h-7 w-7 sm:h-8 sm:w-8 p-0 text-xs'
+            title={copied ? 'Copied!' : 'Share link'}
+          >
+            {copied ? (
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='14'
+                height='14'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <polyline points='20 6 9 17 4 12' />
+              </svg>
+            ) : (
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='14'
+                height='14'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71' />
+                <path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71' />
+              </svg>
+            )}
+          </Button>
         </div>
-        
       </CardHeader>
       <CardContent className='p-3 sm:p-6 pt-0'>
         {question.examples && question.examples.length > 0 && (

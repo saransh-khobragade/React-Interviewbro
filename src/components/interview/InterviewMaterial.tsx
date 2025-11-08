@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Card,
@@ -13,6 +13,58 @@ import { QuestionCard } from './QuestionCard';
 
 export const InterviewMaterial: React.FC = () => {
   const [activeTab, setActiveTab] = useState<QuestionCategory>('data-structures');
+  const [highlightedQuestionId, setHighlightedQuestionId] = useState<string | null>(null);
+
+  // Read URL parameters on mount and when URL changes
+  useEffect(() => {
+    const handleUrlChange = (): void => {
+      const params = new URLSearchParams(window.location.search);
+      const questionId = params.get('q');
+      
+      if (questionId) {
+        const question = questionService.getQuestionById(questionId);
+        if (question) {
+          setActiveTab(question.category);
+          setHighlightedQuestionId(questionId);
+          
+          // Scroll to question after a short delay to ensure DOM is ready
+          setTimeout(() => {
+            const element = document.getElementById(`question-${questionId}`);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // Highlight the question briefly
+              element.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+              setTimeout(() => {
+                element.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+              }, 2000);
+            }
+          }, 100);
+        }
+      } else {
+        setHighlightedQuestionId(null);
+      }
+    };
+
+    // Handle initial load
+    handleUrlChange();
+
+    // Listen for browser back/forward navigation
+    window.addEventListener('popstate', handleUrlChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
+
+  // Update URL when tab changes (remove question param if switching tabs manually)
+  const handleTabChange = (value: QuestionCategory): void => {
+    setActiveTab(value);
+    // Remove question param when manually switching tabs
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q');
+    window.history.replaceState({}, '', url.toString());
+    setHighlightedQuestionId(null);
+  };
 
   const getQuestionsForCategory = (category: QuestionCategory): Question[] => {
     return questionService.getQuestionsByCategory(category);
@@ -54,7 +106,11 @@ export const InterviewMaterial: React.FC = () => {
           </div>
         ) : (
           questions.map(question => (
-            <QuestionCard key={question.id} question={question} />
+            <QuestionCard
+              key={question.id}
+              question={question}
+              isHighlighted={highlightedQuestionId === question.id}
+            />
           ))
         )}
       </div>
@@ -87,7 +143,7 @@ export const InterviewMaterial: React.FC = () => {
               <Tabs
                 value={activeTab}
                 onValueChange={value => {
-                  setActiveTab(value as QuestionCategory);
+                  handleTabChange(value as QuestionCategory);
                 }}
               >
                 <TabsList className='grid w-full grid-cols-3'>
