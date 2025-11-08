@@ -42,10 +42,10 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
 
   return (
     <Card className='hover:shadow-md transition-shadow'>
-      <CardHeader>
+      <CardHeader className='p-3 sm:p-6'>
         <div className='flex items-start justify-between'>
           <div className='flex-1'>
-            <CardTitle className='text-sm sm:text-lg mb-2'>{question.title}</CardTitle>
+            <CardTitle className='text-sm sm:text-lg mb-1 sm:mb-2'>{question.title}</CardTitle>
             <CardDescription className='text-[10px] sm:text-sm leading-relaxed'>
               {question.description}
             </CardDescription>
@@ -53,11 +53,11 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
         </div>
         
       </CardHeader>
-      <CardContent>
+      <CardContent className='p-3 sm:p-6 pt-0'>
         {question.examples && question.examples.length > 0 && (
-          <div className='mb-4'>
-            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Examples:</h4>
-            <div className='bg-muted p-3 rounded-sm'>
+          <div className='mb-2 sm:mb-4'>
+            <h4 className='text-xs sm:text-sm font-semibold mb-1 sm:mb-2'>Examples:</h4>
+            <div className='bg-muted p-2 sm:p-3 rounded-sm'>
               <pre className='text-[10px] sm:text-xs whitespace-pre-wrap font-mono'>
                 {question.examples.join('\n\n')}
               </pre>
@@ -67,8 +67,8 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
 
         {// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         question.codeSnippet && (
-          <div className='mb-4'>
-            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Code:</h4>
+          <div className='mb-2 sm:mb-4'>
+            <h4 className='text-xs sm:text-sm font-semibold mb-1 sm:mb-2'>Code:</h4>
             <div className='rounded-sm overflow-hidden code-snippet-wrapper'>
               <SyntaxHighlighter
                 language='typescript'
@@ -77,7 +77,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
                   margin: 0,
                   fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)',
                   lineHeight: '1.5',
-                  padding: '0.75rem',
+                  padding: 'clamp(0.5rem, 1.5vw, 0.75rem)',
                   borderRadius: '0.125rem',
                 }}
                 showLineNumbers={false}
@@ -91,9 +91,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
         )}
 
         {question.solution !== undefined && question.solution !== '' && (
-          <div className='mb-4'>
-            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Solution:</h4>
-            <ul className='list-disc list-inside space-y-1'>
+          <div className='mb-2 sm:mb-4'>
+            <h4 className='text-xs sm:text-sm font-semibold mb-1 sm:mb-2'>Solution:</h4>
+            <ul className='list-disc list-inside space-y-0.5 sm:space-y-1'>
               {getSolutionBullets(question.solution).map((bullet, index) => (
                 <li key={index} className='text-xs sm:text-sm leading-relaxed'>
                   {bullet}
@@ -102,8 +102,8 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
             </ul>
           </div>
         )}
-        <div className='flex flex-wrap gap-2 mt-4'>
-          <Badge className={getDifficultyColor(question.difficulty)}>
+        <div className='flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-4'>
+          <Badge className={`${getDifficultyColor(question.difficulty)} text-[10px] sm:text-xs`}>
             {question.difficulty.toUpperCase()}
           </Badge>
           {question.tags.map(tag => (

@@ -47,9 +47,9 @@ export const InterviewMaterial: React.FC = () => {
   const renderQuestionsTab = (category: QuestionCategory): React.ReactNode => {
     const questions = getQuestionsForCategory(category);
     return (
-      <div className='space-y-4'>
+      <div className='space-y-3 sm:space-y-4'>
         {questions.length === 0 ? (
-          <div className='text-center py-8 text-muted-foreground text-xs sm:text-sm'>
+          <div className='text-center py-6 sm:py-8 text-muted-foreground text-xs sm:text-sm'>
             No questions available in this category.
           </div>
         ) : (
@@ -65,7 +65,7 @@ export const InterviewMaterial: React.FC = () => {
     <div className='min-h-screen bg-background'>
       {/* Header */}
       <header className='border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50'>
-        <div className='container mx-auto px-4 py-4'>
+        <div className='container mx-auto px-3 sm:px-4 py-2 sm:py-4'>
           <div className='flex items-center justify-center'>
             <h1 className='text-base sm:text-xl font-bold'>InterviewBro</h1>
           </div>
@@ -73,17 +73,17 @@ export const InterviewMaterial: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className='container mx-auto px-4 py-8'>
-        <div className='space-y-6'>
+      <main className='container mx-auto px-3 sm:px-4 py-4 sm:py-8'>
+        <div className='space-y-4 sm:space-y-6'>
           {/* Questions Tabs */}
           <Card>
-            <CardHeader>
+            <CardHeader className='p-3 sm:p-6'>
               <CardTitle className='text-base sm:text-xl'>{getCategoryTitle(activeTab)}</CardTitle>
               <CardDescription className='text-xs sm:text-sm'>
                 {getCategoryDescription(activeTab)}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className='p-3 sm:p-6 pt-0'>
               <Tabs
                 value={activeTab}
                 onValueChange={value => {

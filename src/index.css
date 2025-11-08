@@ -133,7 +133,6 @@
   @media (max-width: 639px) {
     .code-snippet-wrapper pre {
       font-size: 0.65rem !important;
-      padding: 0.5rem !important;
     }
   }
   
