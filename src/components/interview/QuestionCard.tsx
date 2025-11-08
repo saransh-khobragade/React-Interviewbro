@@ -45,29 +45,20 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
       <CardHeader>
         <div className='flex items-start justify-between'>
           <div className='flex-1'>
-            <CardTitle className='text-base sm:text-lg mb-2'>{question.title}</CardTitle>
-            <CardDescription className='text-xs sm:text-sm leading-relaxed'>
+            <CardTitle className='text-sm sm:text-lg mb-2'>{question.title}</CardTitle>
+            <CardDescription className='text-[10px] sm:text-sm leading-relaxed'>
               {question.description}
             </CardDescription>
           </div>
         </div>
-        <div className='flex flex-wrap gap-2 mt-4'>
-          <Badge className={getDifficultyColor(question.difficulty)}>
-            {question.difficulty.toUpperCase()}
-          </Badge>
-          {question.tags.map(tag => (
-            <Badge key={tag} variant='secondary' className='text-xs'>
-              {tag}
-            </Badge>
-          ))}
-        </div>
+        
       </CardHeader>
       <CardContent>
         {question.examples && question.examples.length > 0 && (
           <div className='mb-4'>
-            <h4 className='text-sm font-semibold mb-2'>Examples:</h4>
+            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Examples:</h4>
             <div className='bg-muted p-3 rounded-sm'>
-              <pre className='text-xs whitespace-pre-wrap font-mono'>
+              <pre className='text-[10px] sm:text-xs whitespace-pre-wrap font-mono'>
                 {question.examples.join('\n\n')}
               </pre>
             </div>
@@ -77,18 +68,21 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
         {// eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         question.codeSnippet && (
           <div className='mb-4'>
-            <h4 className='text-sm font-semibold mb-2'>Code:</h4>
-            <div className='rounded-sm overflow-hidden'>
+            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Code:</h4>
+            <div className='rounded-sm overflow-hidden code-snippet-wrapper'>
               <SyntaxHighlighter
                 language='typescript'
                 style={vscDarkPlus}
                 customStyle={{
                   margin: 0,
-                  fontSize: '0.75rem',
+                  fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)',
                   lineHeight: '1.5',
                   padding: '0.75rem',
+                  borderRadius: '0.125rem',
                 }}
                 showLineNumbers={false}
+                wrapLines={true}
+                wrapLongLines={true}
               >
                 {question.codeSnippet}
               </SyntaxHighlighter>
@@ -98,16 +92,26 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
 
         {question.solution !== undefined && question.solution !== '' && (
           <div className='mb-4'>
-            <h4 className='text-sm font-semibold mb-2'>Solution:</h4>
+            <h4 className='text-xs sm:text-sm font-semibold mb-2'>Solution:</h4>
             <ul className='list-disc list-inside space-y-1'>
               {getSolutionBullets(question.solution).map((bullet, index) => (
-                <li key={index} className='text-sm leading-relaxed'>
+                <li key={index} className='text-xs sm:text-sm leading-relaxed'>
                   {bullet}
                 </li>
               ))}
             </ul>
           </div>
         )}
+        <div className='flex flex-wrap gap-2 mt-4'>
+          <Badge className={getDifficultyColor(question.difficulty)}>
+            {question.difficulty.toUpperCase()}
+          </Badge>
+          {question.tags.map(tag => (
+            <Badge key={tag} variant='secondary' className='text-[10px] sm:text-xs'>
+              {tag}
+            </Badge>
+          ))}
+        </div>
       </CardContent>
     </Card>
   );

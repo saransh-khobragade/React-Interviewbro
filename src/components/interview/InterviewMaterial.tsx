@@ -49,7 +49,7 @@ export const InterviewMaterial: React.FC = () => {
     return (
       <div className='space-y-4'>
         {questions.length === 0 ? (
-          <div className='text-center py-8 text-muted-foreground'>
+          <div className='text-center py-8 text-muted-foreground text-xs sm:text-sm'>
             No questions available in this category.
           </div>
         ) : (
@@ -67,7 +67,7 @@ export const InterviewMaterial: React.FC = () => {
       <header className='border-b bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-card/50'>
         <div className='container mx-auto px-4 py-4'>
           <div className='flex items-center justify-center'>
-            <h1 className='text-lg sm:text-xl font-bold'>InterviewBro</h1>
+            <h1 className='text-base sm:text-xl font-bold'>InterviewBro</h1>
           </div>
         </div>
       </header>
@@ -78,8 +78,8 @@ export const InterviewMaterial: React.FC = () => {
           {/* Questions Tabs */}
           <Card>
             <CardHeader>
-              <CardTitle>{getCategoryTitle(activeTab)}</CardTitle>
-              <CardDescription>
+              <CardTitle className='text-base sm:text-xl'>{getCategoryTitle(activeTab)}</CardTitle>
+              <CardDescription className='text-xs sm:text-sm'>
                 {getCategoryDescription(activeTab)}
               </CardDescription>
             </CardHeader>
@@ -105,15 +105,15 @@ export const InterviewMaterial: React.FC = () => {
                   </TabsTrigger>
                 </TabsList>
 
-                <TabsContent value='data-structures' className='mt-6'>
+                <TabsContent value='data-structures' className='mt-1'>
                   {renderQuestionsTab('data-structures')}
                 </TabsContent>
 
-                <TabsContent value='low-level-design' className='mt-6'>
+                <TabsContent value='low-level-design' className='mt-1'>
                   {renderQuestionsTab('low-level-design')}
                 </TabsContent>
 
-                <TabsContent value='high-level-design' className='mt-6'>
+                <TabsContent value='high-level-design' className='mt-1'>
                   {renderQuestionsTab('high-level-design')}
                 </TabsContent>
               </Tabs>

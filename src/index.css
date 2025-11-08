@@ -118,3 +118,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  /* Ensure react-syntax-highlighter code blocks are responsive */
+  .code-snippet-wrapper pre {
+    font-size: clamp(0.65rem, 1.5vw, 0.75rem) !important;
+  }
+  
+  .code-snippet-wrapper code {
+    font-size: inherit !important;
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 639px) {
+    .code-snippet-wrapper pre {
+      font-size: 0.65rem !important;
+      padding: 0.5rem !important;
+    }
+  }
+  
+  /* Desktop adjustments */
+  @media (min-width: 640px) {
+    .code-snippet-wrapper pre {
+      font-size: 0.75rem !important;
+    }
+  }
+}

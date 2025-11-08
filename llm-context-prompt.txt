@@ -3,64 +3,72 @@
 I need your help with a React TypeScript project. Here's the complete context:
 
 ## Project Summary
-**InterviewBro** is a production-ready React 19 application built with TypeScript, Vite, Tailwind CSS, and shadcn/ui components. It features a complete authentication system and user management dashboard with CRUD operations.
+**InterviewBro** is a production-ready React 19 application built with TypeScript, Vite, Tailwind CSS, and shadcn/ui components. It's an interview preparation platform that displays coding interview questions organized by categories (Data Structures, Low Level Design, High Level Design).
 
 ## Technology Stack
 - **React**: 19.1.0
 - **TypeScript**: 5.8.3 (strict mode)
 - **Build Tool**: Vite 7.0.4
 - **Styling**: Tailwind CSS 4.1.11 + shadcn/ui components
-- **Forms**: React Hook Form + Zod validation
-- **State**: React Context API
-- **Package Manager**: Yarn 1.22.22
-- **Code Quality**: ESLint (ultra-strict) + Prettier + Husky
+- **Code Highlighting**: react-syntax-highlighter
+- **State**: React hooks (useState)
+- **Package Manager**: Bun 1.1.0
+- **Code Quality**: ESLint (strict) + Prettier
 
 ## Project Structure
 ```
 src/
 ├── components/
-│   ├── auth/              # AuthPage, LoginForm, SignupForm
-│   ├── dashboard/         # Dashboard, UserForm
-│   └── ui/                # shadcn/ui components (button, card, input, label, table, sonner)
-├── contexts/
-│   └── AuthContext.tsx    # Global auth state (user, login, signup, logout)
+│   ├── interview/          # InterviewMaterial, QuestionCard
+│   └── ui/                 # shadcn/ui components (badge, button, card, sonner, tabs)
 ├── services/
-│   └── userService.ts     # CRUD operations with localStorage
+│   └── questionService.ts  # Question retrieval from JSON data
 ├── types/
-│   ├── auth.ts            # User, LoginCredentials, SignupCredentials, AuthContextType
-│   └── user.ts            # User, CreateUserData, UpdateUserData
+│   └── interview.ts        # Question, QuestionCategory, CreateQuestionData, UpdateQuestionData
 ├── lib/
-│   ├── themes.ts          # Theme utilities
-│   └── utils.ts           # Helper functions (cn for className merging)
-├── App.tsx                # Main component with auth routing
-├── main.tsx               # Entry point
-└── index.css              # Global styles + CSS variables
+│   └── utils.ts            # Helper functions (cn for className merging)
+├── App.tsx                 # Main component rendering InterviewMaterial
+├── main.tsx                # Entry point
+└── index.css               # Global styles + CSS variables
+
+data/
+└── data.json               # Questions data (read-only)
 ```
 
 ## Key Features Implemented
 
-### 1. Authentication System
-- Login/Signup forms with email/password validation
-- Session persistence via localStorage (key: `'user'`)
-- Mock API calls with 1-second delay
-- Protected routing: shows AuthPage (logged out) or Dashboard (logged in)
-- AuthContext provides: `user`, `login()`, `signup()`, `logout()`, `isLoading`
+### 1. Interview Question Display
+- Questions organized by three categories:
+  - **Data Structures**: Algorithm and data structure problems
+  - **Low Level Design**: Object-oriented design problems
+  - **High Level Design**: Distributed systems and architecture problems
+- Tabbed interface for easy navigation between categories
+- Responsive design with mobile-friendly tab labels
 
-### 2. User Management Dashboard
-- Display users in responsive table
-- Statistics cards: Total Users, New This Week, Updated Today
-- CRUD operations: Create, Read, Update, Delete users
-- Modal forms for add/edit user
-- Delete confirmation dialog
-- Data stored in localStorage (key: `'users'`)
-- 3 mock users pre-populated: John Doe, Jane Smith, Bob Johnson
+### 2. Question Card Component
+- Displays question title, description, difficulty, and tags
+- Shows examples (if available)
+- Syntax-highlighted code snippets using react-syntax-highlighter (vscDarkPlus theme)
+- Formatted solution explanations
+- Difficulty badges with color coding:
+  - Easy: Green
+  - Medium: Yellow
+  - Hard: Red
 
-### 3. UI/UX
+### 3. Question Service
+- Loads questions from `data/data.json`
+- Provides methods to:
+  - Get all questions
+  - Get questions by category
+  - Get question by ID
+- Questions are read-only (create/update/delete operations throw errors)
+
+### 4. UI/UX
 - shadcn/ui components (modern, accessible)
 - Responsive design (mobile-first)
-- Toast notifications (Sonner)
-- Loading states throughout
+- Toast notifications (Sonner) ready
 - Dark mode ready (theme infrastructure exists)
+- Syntax highlighting for code snippets
 
 ## TypeScript Configuration
 - **Strict mode**: enabled
@@ -70,57 +78,58 @@ src/
 - **No non-null assertions**
 
 ## Code Quality Rules
-- **ESLint**: Ultra-strict (no console, no debugger, prefer const, React hooks exhaustive deps)
+- **ESLint**: Strict (no console, no debugger, prefer const, React hooks exhaustive deps)
 - **Prettier**: Single quotes, trailing commas, 2-space indent
-- **Git hooks**: Pre-commit (lint + format), commit-msg (conventional commits)
 - **Import sorting**: Alphabetical
 
 ## Type Definitions
 ```typescript
-interface User {
+type QuestionCategory = 'data-structures' | 'low-level-design' | 'high-level-design';
+
+interface Question {
   id: string;
-  email: string;
-  name: string;
+  title: string;
+  description: string;
+  category: QuestionCategory;
+  difficulty: 'easy' | 'medium' | 'hard';
+  tags: string[];
+  solution?: string;
+  examples?: string[];
+  codeSnippet?: string;
   createdAt: string;
   updatedAt: string;
-}
-
-interface AuthContextType {
-  user: User | null;
-  login: (credentials: LoginCredentials) => Promise<void>;
-  signup: (credentials: SignupCredentials) => Promise<void>;
-  logout: () => void;
-  isLoading: boolean;
 }
 ```
 
 ## Data Flow
-1. **Auth**: Login → AuthContext updates → localStorage saves → Dashboard renders
-2. **Users**: Dashboard → userService CRUD → localStorage updates → UI re-renders
-3. **Routing**: App.tsx checks AuthContext.user → renders AuthPage or Dashboard
+1. **Questions**: `data/data.json` → `questionService` → `InterviewMaterial` → `QuestionCard`
+2. **Categories**: User selects tab → `InterviewMaterial` filters questions → displays in `QuestionCard` components
+3. **Rendering**: `App.tsx` → `InterviewMaterial` → tabs → filtered questions → `QuestionCard`
 
 ## Available Commands
 ```bash
-yarn dev          # Start dev server (localhost:5173)
-yarn build        # Production build
-yarn lint         # Check linting
-yarn lint:fix     # Fix linting issues
-yarn format       # Format with Prettier
-yarn type-check   # TypeScript validation
+bun dev          # Start dev server (localhost:5173)
+bun build        # Production build
+bun lint         # Check linting
+bun lint:fix     # Fix linting issues
+bun format       # Format with Prettier
+bun type-check   # TypeScript validation
+bun preview      # Preview production build
 ```
 
 ## Important Files
 - **vite.config.ts**: Path aliases configured
 - **components.json**: shadcn/ui configuration
-- **tsconfig.json**: Strict TypeScript with project references
-- **eslint.config.js**: Ultra-strict linting rules
-- **CONFIGURATION.md**: Theme and component usage guide
-- **DEBUG_GUIDE.md**: Common error solutions
+- **tsconfig.json**: Strict TypeScript configuration
+- **eslint.config.js**: Strict linting rules
+- **data/data.json**: Question data source (read-only)
 
 ## Current Status
-- Fully functional authentication and user management system
-- All data persisted to localStorage (mock backend)
+- Fully functional interview question display system
+- Questions loaded from JSON file (read-only)
 - Production-ready boilerplate with strict type safety
-- No real backend integration yet (uses mock services)
+- Responsive UI with category-based organization
+- Code syntax highlighting implemented
+- No backend integration (static data from JSON)
 
 ---
