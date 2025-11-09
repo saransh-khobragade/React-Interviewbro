@@ -32,7 +32,9 @@ src/
 └── index.css               # Global styles + CSS variables
 
 data/
-└── data.json               # Questions data (read-only)
+├── data-structures.json    # Data structures questions (read-only)
+├── low-level-design.json   # Low-level design questions (read-only)
+└── high-level-design.json  # High-level design questions (read-only)
 ```
 
 ## Key Features Implemented
@@ -56,7 +58,11 @@ data/
   - Hard: Red
 
 ### 3. Question Service
-- Loads questions from `data/data.json`
+- Loads questions from three separate JSON files:
+  - `data/data-structures.json` - Data structures questions
+  - `data/low-level-design.json` - Low-level design questions
+  - `data/high-level-design.json` - High-level design questions
+- Combines all questions from the three files
 - Provides methods to:
   - Get all questions
   - Get questions by category
@@ -102,7 +108,7 @@ interface Question {
 ```
 
 ## Data Flow
-1. **Questions**: `data/data.json` → `questionService` → `InterviewMaterial` → `QuestionCard`
+1. **Questions**: `data/*.json` (3 files) → `questionService` (combines) → `InterviewMaterial` → `QuestionCard`
 2. **Categories**: User selects tab → `InterviewMaterial` filters questions → displays in `QuestionCard` components
 3. **Rendering**: `App.tsx` → `InterviewMaterial` → tabs → filtered questions → `QuestionCard`
 
@@ -122,14 +128,16 @@ bun preview      # Preview production build
 - **components.json**: shadcn/ui configuration
 - **tsconfig.json**: Strict TypeScript configuration
 - **eslint.config.js**: Strict linting rules
-- **data/data.json**: Question data source (read-only)
+- **data/data-structures.json**: Data structures questions (read-only)
+- **data/low-level-design.json**: Low-level design questions (read-only)
+- **data/high-level-design.json**: High-level design questions (read-only)
 
 ## Current Status
 - Fully functional interview question display system
-- Questions loaded from JSON file (read-only)
+- Questions loaded from three separate JSON files (read-only)
 - Production-ready boilerplate with strict type safety
 - Responsive UI with category-based organization
 - Code syntax highlighting implemented
-- No backend integration (static data from JSON)
+- No backend integration (static data from JSON files)
 
 ---

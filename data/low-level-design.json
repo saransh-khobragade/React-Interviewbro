@@ -1,0 +1,65 @@
+{
+  "questions": [
+    {
+      "id": "76",
+      "title": "76. Design a Parking Lot System (OOP Design pattern)",
+      "description": "Design a parking lot system that can handle multiple types of vehicles and parking spots with different sizes.",
+      "category": "low-level-design",
+      "difficulty": "medium",
+      "tags": [
+        "oop",
+        "system-design",
+        "parking-lot"
+      ],
+      "solution": "Create classes for Vehicle, ParkingSpot, and ParkingLot. Use enums for vehicle types and spot sizes. Implement methods for parking, unparking, and finding available spots.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "Park a car in a compact spot",
+        "Park a truck in a large spot",
+        "Find available spots for a motorcycle"
+      ],
+      "codeSnippet": "enum VehicleType { CAR, MOTORCYCLE, TRUCK }\nenum SpotSize { SMALL, COMPACT, LARGE }\nclass Vehicle { constructor(public type: VehicleType) {} }\nclass ParkingSpot { constructor(public id: number, public size: SpotSize, public isOccupied: boolean = false) {} }\nclass ParkingLot { private spots: ParkingSpot[] = []; park(vehicle: Vehicle): boolean { const spot = this.findAvailableSpot(vehicle.type); if (spot) { spot.isOccupied = true; return true; } return false; } private findAvailableSpot(type: VehicleType): ParkingSpot | null { return null; } }",
+      "createdAt": "2024-01-04T00:00:00.000Z",
+      "updatedAt": "2024-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "77",
+      "title": "77. Design a LRU Cache (Hashmap + Doubly Linked List pattern)",
+      "description": "Design and implement a data structure for a Least Recently Used (LRU) cache with O(1) time complexity for get and put operations.",
+      "category": "low-level-design",
+      "difficulty": "hard",
+      "tags": [
+        "cache",
+        "doubly-linked-list",
+        "hash-table"
+      ],
+      "solution": "Use a combination of HashMap and Doubly Linked List. HashMap provides O(1) access, and Doubly Linked List maintains the order of usage.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "LRUCache lRUCache = new LRUCache(2); lRUCache.put(1, 1); lRUCache.put(2, 2); lRUCache.get(1); // returns 1"
+      ],
+      "codeSnippet": "class LRUCache { capacity: number; cache: Map<number, number>; constructor(capacity: number) { this.capacity = capacity; this.cache = new Map(); } get(key: number): number { if (!this.cache.has(key)) return -1; const value = this.cache.get(key)!; this.cache.delete(key); this.cache.set(key, value); return value; } put(key: number, value: number): void { if (this.cache.has(key)) { this.cache.delete(key); } else if (this.cache.size >= this.capacity) { const firstKey = this.cache.keys().next().value; this.cache.delete(firstKey); } this.cache.set(key, value); } }",
+      "createdAt": "2024-01-05T00:00:00.000Z",
+      "updatedAt": "2024-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "78",
+      "title": "78. Design a Logger System (Hashmap pattern)",
+      "description": "Design a logger system that receives stream of messages along with their timestamps. Each message should be printed if and only if it is not printed in the last 10 seconds.",
+      "category": "low-level-design",
+      "difficulty": "easy",
+      "tags": [
+        "logger",
+        "hash-table"
+      ],
+      "solution": "Use a HashMap to store the last printed timestamp for each message. Check if the current timestamp is at least 10 seconds after the last printed timestamp.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "Logger logger = new Logger(); logger.shouldPrintMessage(1, \"foo\"); // returns true"
+      ],
+      "codeSnippet": "class Logger { messages: Map<string, number>; constructor() { this.messages = new Map(); } shouldPrintMessage(timestamp: number, message: string): boolean { if (!this.messages.has(message) || timestamp - this.messages.get(message)! >= 10) { this.messages.set(message, timestamp); return true; } return false; } }",
+      "createdAt": "2024-01-06T00:00:00.000Z",
+      "updatedAt": "2024-01-06T00:00:00.000Z"
+    }
+  ]
+}

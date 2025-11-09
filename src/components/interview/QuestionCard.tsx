@@ -168,6 +168,43 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             </ul>
           </div>
         )}
+
+        {question.video && (
+          <div className='mb-2 sm:mb-4'>
+            <h4 className='text-xs sm:text-sm font-semibold mb-1 sm:mb-2'>Video Explanation:</h4>
+            <div className='rounded-sm overflow-hidden bg-muted'>
+              <div className='relative w-full' style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className='absolute top-0 left-0 w-full h-full'
+                  src={(() => {
+                    // Convert youtu.be URL to embed URL
+                    const url = question.video || '';
+                    if (url.includes('youtu.be/')) {
+                      const videoId = url.split('youtu.be/')[1]?.split('?')[0] || '';
+                      return `https://www.youtube.com/embed/${videoId}`;
+                    }
+                    if (url.includes('youtube.com/watch?v=')) {
+                      const videoId = url.split('watch?v=')[1]?.split('&')[0] || '';
+                      return `https://www.youtube.com/embed/${videoId}`;
+                    }
+                    return url;
+                  })()}
+                  title='Video explanation'
+                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                  allowFullScreen
+                />
+              </div>
+            </div>
+            <a
+              href={question.video}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-xs sm:text-sm text-primary hover:underline mt-1 inline-block'
+            >
+              Watch on YouTube →
+            </a>
+          </div>
+        )}
         <div className='flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-4'>
           <Badge className={`${getDifficultyColor(question.difficulty)} text-[10px] sm:text-xs`}>
             {question.difficulty.toUpperCase()}

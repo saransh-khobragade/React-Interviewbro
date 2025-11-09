@@ -1,0 +1,68 @@
+{
+  "questions": [
+    {
+      "id": "79",
+      "title": "79. Design a URL Shortener (TinyURL) (System Design pattern)",
+      "description": "Design a service like TinyURL, a URL shortening service where you enter a URL and it returns a short URL such as tinyurl.com/4e9iAk.",
+      "category": "high-level-design",
+      "difficulty": "medium",
+      "tags": [
+        "distributed-systems",
+        "scalability",
+        "database"
+      ],
+      "solution": "Use base62 encoding for short URLs. Store mappings in a database. Use load balancers, caching (Redis), and CDN for scalability. Consider rate limiting and analytics.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "Input: https://www.example.com/very/long/url\nOutput: https://tinyurl.com/abc123"
+      ],
+      "codeSnippet": "class Codec { private urlMap = new Map<string, string>(); private baseUrl = \"http://tinyurl.com/\"; private chars = \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\"; encode(longUrl: string): string { let code = \"\"; while (!this.urlMap.has(code) && code.length < 6) { code = \"\"; for (let i = 0; i < 6; i++) { code += this.chars[Math.floor(Math.random() * this.chars.length)]; } } this.urlMap.set(code, longUrl); return this.baseUrl + code; } decode(shortUrl: string): string { const code = shortUrl.replace(this.baseUrl, \"\"); return this.urlMap.get(code) || \"\"; } }",
+      "createdAt": "2024-01-07T00:00:00.000Z",
+      "updatedAt": "2024-01-07T00:00:00.000Z"
+    },
+    {
+      "id": "80",
+      "title": "80. Design a Distributed Cache System (System Design pattern)",
+      "description": "Design a distributed caching system that can handle millions of requests per second with high availability and consistency.",
+      "category": "high-level-design",
+      "difficulty": "hard",
+      "tags": [
+        "distributed-systems",
+        "caching",
+        "consistency"
+      ],
+      "solution": "Use consistent hashing for sharding. Implement replication with leader-follower pattern. Use cache eviction policies (LRU). Add monitoring and auto-scaling.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "Handle cache misses gracefully",
+        "Maintain consistency across replicas",
+        "Scale horizontally"
+      ],
+      "codeSnippet": "// Distributed Cache System Design\n// Key components:\n// 1. Consistent Hashing for sharding\n// 2. Replication with leader-follower pattern\n// 3. Cache eviction policies (LRU)\n// 4. Load balancing\n\nclass DistributedCacheNode { id: string; data: Map<string, any>; replicas: DistributedCacheNode[]; constructor(id: string) { this.id = id; this.data = new Map(); this.replicas = []; } get(key: string): any { return this.data.get(key); } set(key: string, value: any): void { this.data.set(key, value); this.replicate(key, value); } replicate(key: string, value: any): void { for (let replica of this.replicas) { replica.data.set(key, value); } } }",
+      "createdAt": "2024-01-08T00:00:00.000Z",
+      "updatedAt": "2024-01-08T00:00:00.000Z"
+    },
+    {
+      "id": "81",
+      "title": "81. Design a Chat Application (System Design pattern)",
+      "description": "Design a real-time chat application like WhatsApp or Slack that supports one-on-one and group messaging.",
+      "category": "high-level-design",
+      "difficulty": "hard",
+      "tags": [
+        "real-time",
+        "messaging",
+        "websockets"
+      ],
+      "solution": "Use WebSockets for real-time communication. Store messages in a database. Use message queues for reliability. Implement read receipts, typing indicators, and message delivery status.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
+      "examples": [
+        "Send messages in real-time",
+        "Support group chats with multiple participants",
+        "Handle offline message delivery"
+      ],
+      "codeSnippet": "// Chat Application Design\n// Key components:\n// 1. WebSocket server for real-time communication\n// 2. Message storage in database\n// 3. User presence tracking\n// 4. Message queues for reliability\n\nclass ChatMessage { id: string; senderId: string; receiverId: string; content: string; timestamp: Date; constructor(senderId: string, receiverId: string, content: string) { this.id = Math.random().toString(36); this.senderId = senderId; this.receiverId = receiverId; this.content = content; this.timestamp = new Date(); } }\n\nclass ChatService { private messages: ChatMessage[] = []; private connections = new Map<string, WebSocket>(); sendMessage(senderId: string, receiverId: string, content: string): void { const message = new ChatMessage(senderId, receiverId, content); this.messages.push(message); const receiverSocket = this.connections.get(receiverId); if (receiverSocket) { receiverSocket.send(JSON.stringify(message)); } } addConnection(userId: string, socket: WebSocket): void { this.connections.set(userId, socket); } }",
+      "createdAt": "2024-01-09T00:00:00.000Z",
+      "updatedAt": "2024-01-09T00:00:00.000Z"
+    }
+  ]
+}

@@ -4,11 +4,19 @@ import type {
   CreateQuestionData,
   UpdateQuestionData,
 } from '@/types/interview';
-import questionsData from '../../data/data.json';
+import dataStructuresData from '../../data/data-structures.json';
+import lowLevelDesignData from '../../data/low-level-design.json';
+import highLevelDesignData from '../../data/high-level-design.json';
 
-// Load questions from JSON file
+// Load questions from JSON files
 const loadQuestionsFromJSON = (): Question[] => {
-  return (questionsData as { questions: Question[] }).questions.map(q => ({
+  const allQuestions = [
+    ...(dataStructuresData as { questions: Question[] }).questions,
+    ...(lowLevelDesignData as { questions: Question[] }).questions,
+    ...(highLevelDesignData as { questions: Question[] }).questions,
+  ];
+
+  return allQuestions.map(q => ({
     ...q,
     // Ensure dates are strings
     createdAt: q.createdAt ?? new Date().toISOString(),
@@ -34,7 +42,7 @@ const createQuestion = async (
   _questionData: CreateQuestionData,
 ): Promise<Question> => {
   // Persistence is not available without storage
-  throw new Error('Question creation is not supported. Questions are read-only from data.json');
+  throw new Error('Question creation is not supported. Questions are read-only from JSON files');
 };
 
 const updateQuestion = async (
@@ -42,12 +50,12 @@ const updateQuestion = async (
   _questionData: UpdateQuestionData,
 ): Promise<Question> => {
   // Persistence is not available without storage
-  throw new Error('Question updates are not supported. Questions are read-only from data.json');
+  throw new Error('Question updates are not supported. Questions are read-only from JSON files');
 };
 
 const deleteQuestion = async (_id: string): Promise<void> => {
   // Persistence is not available without storage
-  throw new Error('Question deletion is not supported. Questions are read-only from data.json');
+  throw new Error('Question deletion is not supported. Questions are read-only from JSON files');
 };
 
 export const questionService = {

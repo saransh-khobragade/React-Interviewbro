@@ -11,6 +11,7 @@
         "hash-table"
       ],
       "solution": "Use a hash map to store each number and its index. For each number, check if target - number exists in the map.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [2,7,11,15], target = 9\nOutput: [0,1]",
         "Input: nums = [3,2,4], target = 6\nOutput: [1,2]"
@@ -30,6 +31,7 @@
         "greedy"
       ],
       "solution": "Track the minimum price seen so far and calculate the maximum profit at each step.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: prices = [7,1,5,3,6,4]\nOutput: 5"
       ],
@@ -48,6 +50,7 @@
         "hash-table"
       ],
       "solution": "Use a hash set to track seen numbers. If a number is already in the set, return true.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [1,2,3,1]\nOutput: true"
       ],
@@ -66,6 +69,7 @@
         "prefix-sum"
       ],
       "solution": "Use prefix and suffix products. Calculate left products first, then right products in reverse.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [1,2,3,4]\nOutput: [24,12,8,6]"
       ],
@@ -84,6 +88,7 @@
         "dynamic-programming"
       ],
       "solution": "Use Kadanes algorithm. Track the maximum sum ending at each position.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [-2,1,-3,4,-1,2,1,-5,4]\nOutput: 6"
       ],
@@ -102,6 +107,7 @@
         "dynamic-programming"
       ],
       "solution": "Track both maximum and minimum product at each position, as negative numbers can flip the sign.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [2,3,-2,4]\nOutput: 6"
       ],
@@ -120,6 +126,7 @@
         "binary-search"
       ],
       "solution": "Use binary search. Compare middle element with the rightmost element to determine which half to search.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [3,4,5,1,2]\nOutput: 1"
       ],
@@ -138,6 +145,7 @@
         "binary-search"
       ],
       "solution": "Use binary search with special handling for rotated array. Check which half is sorted.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [4,5,6,7,0,1,2], target = 0\nOutput: 4"
       ],
@@ -156,6 +164,7 @@
         "two-pointers"
       ],
       "solution": "Sort the array first. For each element, use two pointers to find pairs that sum to the negative of that element.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [-1,0,1,2,-1,-4]\nOutput: [[-1,-1,2],[-1,0,1]]"
       ],
@@ -174,6 +183,7 @@
         "two-pointers"
       ],
       "solution": "Use two pointers at both ends. Move the pointer with the smaller height inward.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: height = [1,8,6,2,5,4,8,3,7]\nOutput: 49"
       ],
@@ -192,6 +202,7 @@
         "bit-manipulation"
       ],
       "solution": "Use bitwise XOR for addition and AND with left shift for carry.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: a = 1, b = 2\nOutput: 3"
       ],
@@ -209,6 +220,7 @@
         "bit-manipulation"
       ],
       "solution": "Use bit manipulation. Count bits using n & (n-1) trick or right shift.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 11\nOutput: 3"
       ],
@@ -227,6 +239,7 @@
         "bit-manipulation"
       ],
       "solution": "Use dynamic programming. The number of 1s in i is equal to number of 1s in i/2 plus i % 2.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 2\nOutput: [0,1,1]"
       ],
@@ -246,6 +259,7 @@
         "bit-manipulation"
       ],
       "solution": "Use XOR operation or calculate expected sum vs actual sum.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [3,0,1]\nOutput: 2"
       ],
@@ -263,6 +277,7 @@
         "bit-manipulation"
       ],
       "solution": "Extract bits from right to left and build the reversed number.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 43261596\nOutput: 964176192"
       ],
@@ -281,6 +296,7 @@
         "math"
       ],
       "solution": "Use dynamic programming. Ways to reach step n = ways to reach step (n-1) + ways to reach step (n-2).",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 2\nOutput: 2"
       ],
@@ -298,6 +314,7 @@
         "dynamic-programming"
       ],
       "solution": "Use dynamic programming. For each amount, try all coins and take the minimum.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: coins = [1,2,5], amount = 11\nOutput: 3"
       ],
@@ -317,6 +334,7 @@
         "binary-search"
       ],
       "solution": "Use dynamic programming with binary search for O(n log n) solution.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [10,9,2,5,3,7,101,18]\nOutput: 4"
       ],
@@ -335,6 +353,7 @@
         "dynamic-programming"
       ],
       "solution": "Use 2D dynamic programming. If characters match, add 1 to diagonal. Otherwise, take max of left or top.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: text1 = \"abcde\", text2 = \"ace\"\nOutput: 3"
       ],
@@ -353,6 +372,7 @@
         "dynamic-programming"
       ],
       "solution": "Use dynamic programming. For each position, check if substring ending there can be segmented.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"leetcode\", wordDict = [\"leet\",\"code\"]\nOutput: true"
       ],
@@ -371,6 +391,7 @@
         "backtracking"
       ],
       "solution": "Use backtracking. Try each candidate and recursively solve for remaining target.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: candidates = [2,3,6,7], target = 7\nOutput: [[2,2,3],[7]]"
       ],
@@ -389,6 +410,7 @@
         "dynamic-programming"
       ],
       "solution": "Use dynamic programming. At each house, decide to rob or skip based on maximum profit.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [1,2,3,1]\nOutput: 4"
       ],
@@ -407,6 +429,7 @@
         "dynamic-programming"
       ],
       "solution": "Similar to House Robber, but handle circular array by solving for [0, n-2] and [1, n-1] separately.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [2,3,2]\nOutput: 3"
       ],
@@ -425,6 +448,7 @@
         "dynamic-programming"
       ],
       "solution": "Use dynamic programming. For each position, check if single digit or two digits form valid code.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"12\"\nOutput: 2"
       ],
@@ -443,6 +467,7 @@
         "dynamic-programming"
       ],
       "solution": "Use dynamic programming. Paths to (i,j) = paths to (i-1,j) + paths to (i,j-1).",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: m = 3, n = 7\nOutput: 28"
       ],
@@ -461,6 +486,7 @@
         "greedy"
       ],
       "solution": "Use greedy approach. Track the farthest position you can reach.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [2,3,1,1,4]\nOutput: true"
       ],
@@ -480,6 +506,7 @@
         "dfs"
       ],
       "solution": "Use DFS or BFS with a hash map to store cloned nodes.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: adjList = [[2,4],[1,3],[2,4],[1,3]]\nOutput: [[2,4],[1,3],[2,4],[1,3]]"
       ],
@@ -498,6 +525,7 @@
         "topological-sort"
       ],
       "solution": "Use topological sort (Kahn algorithm) or DFS to detect cycles.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: numCourses = 2, prerequisites = [[1,0]]\nOutput: true"
       ],
@@ -517,6 +545,7 @@
         "bfs"
       ],
       "solution": "Start DFS from all border cells. Mark cells reachable from Pacific and Atlantic separately, then find intersection.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]\nOutput: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]"
       ],
@@ -536,6 +565,7 @@
         "bfs"
       ],
       "solution": "Use DFS or BFS. For each 1 found, mark all connected 1s as visited.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]\nOutput: 1"
       ],
@@ -554,6 +584,7 @@
         "hash-table"
       ],
       "solution": "Use hash set. For each number, check if it starts a sequence by checking if num-1 exists.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [100,4,200,1,3,2]\nOutput: 4"
       ],
@@ -572,6 +603,7 @@
         "topological-sort"
       ],
       "solution": "Build a graph from word comparisons, then use topological sort.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: words = [\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]\nOutput: \"wertf\""
       ],
@@ -590,6 +622,7 @@
         "union-find"
       ],
       "solution": "Use union-find or DFS. A valid tree has n-1 edges and is connected.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]\nOutput: true"
       ],
@@ -609,6 +642,7 @@
         "dfs"
       ],
       "solution": "Use union-find or DFS to count connected components.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: n = 5, edges = [[0,1],[1,2],[3,4]]\nOutput: 2"
       ],
@@ -626,6 +660,7 @@
         "array"
       ],
       "solution": "Insert the interval and merge overlapping intervals.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: intervals = [[1,3],[6,9]], newInterval = [2,5]\nOutput: [[1,5],[6,9]]"
       ],
@@ -644,6 +679,7 @@
         "sorting"
       ],
       "solution": "Sort by start time, then merge overlapping intervals.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: intervals = [[1,3],[2,6],[8,10],[15,18]]\nOutput: [[1,6],[8,10],[15,18]]"
       ],
@@ -663,6 +699,7 @@
         "sorting"
       ],
       "solution": "Sort by end time. Greedily keep intervals that end earliest.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: intervals = [[1,2],[2,3],[3,4],[1,3]]\nOutput: 1"
       ],
@@ -681,6 +718,7 @@
         "sorting"
       ],
       "solution": "Sort by start time and check if any interval overlaps with the next.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: intervals = [[0,30],[5,10],[15,20]]\nOutput: false"
       ],
@@ -700,6 +738,7 @@
         "greedy"
       ],
       "solution": "Use min heap to track end times of meetings. Sort by start time.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: intervals = [[0,30],[5,10],[15,20]]\nOutput: 2"
       ],
@@ -718,6 +757,7 @@
         "recursion"
       ],
       "solution": "Iterate through the list, reversing pointers. Use three pointers: prev, current, and next.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: head = [1,2,3,4,5]\nOutput: [5,4,3,2,1]"
       ],
@@ -736,6 +776,7 @@
         "two-pointers"
       ],
       "solution": "Use Floyds cycle detection algorithm (tortoise and hare).",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: head = [3,2,0,-4], pos = 1\nOutput: true"
       ],
@@ -753,6 +794,7 @@
         "linked-list"
       ],
       "solution": "Use two pointers, compare values and merge.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: list1 = [1,2,4], list2 = [1,3,4]\nOutput: [1,1,2,3,4,4]"
       ],
@@ -772,6 +814,7 @@
         "divide-conquer"
       ],
       "solution": "Use min heap to always get the smallest node, or use divide and conquer merge.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: lists = [[1,4,5],[1,3,4],[2,6]]\nOutput: [1,1,2,3,4,4,5,6]"
       ],
@@ -790,6 +833,7 @@
         "two-pointers"
       ],
       "solution": "Use two pointers. Move first pointer n steps ahead, then move both until first reaches end.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: head = [1,2,3,4,5], n = 2\nOutput: [1,2,3,5]"
       ],
@@ -808,6 +852,7 @@
         "two-pointers"
       ],
       "solution": "Find middle, reverse second half, then merge the two halves.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: head = [1,2,3,4]\nOutput: [1,4,2,3]"
       ],
@@ -826,6 +871,7 @@
         "matrix"
       ],
       "solution": "Use first row and column as markers. Handle first row and column separately.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]\nOutput: [[1,0,1],[0,0,0],[1,0,1]]"
       ],
@@ -844,6 +890,7 @@
         "matrix"
       ],
       "solution": "Use four boundaries: top, bottom, left, right. Traverse in spiral order.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]\nOutput: [1,2,3,6,9,8,7,4,5]"
       ],
@@ -862,6 +909,7 @@
         "matrix"
       ],
       "solution": "Transpose the matrix, then reverse each row.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]\nOutput: [[7,4,1],[8,5,2],[9,6,3]]"
       ],
@@ -881,6 +929,7 @@
         "dfs"
       ],
       "solution": "Use backtracking with DFS. Mark visited cells and backtrack.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"\nOutput: true"
       ],
@@ -899,6 +948,7 @@
         "sliding-window"
       ],
       "solution": "Use sliding window with hash set to track characters in current window.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"abcabcbb\"\nOutput: 3"
       ],
@@ -917,6 +967,7 @@
         "sliding-window"
       ],
       "solution": "Use sliding window. Track character frequencies and check if window can be made valid with k replacements.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"ABAB\", k = 2\nOutput: 4"
       ],
@@ -935,6 +986,7 @@
         "sliding-window"
       ],
       "solution": "Use sliding window. Expand right until all characters are included, then shrink left.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"ADOBECODEBANC\", t = \"ABC\"\nOutput: \"BANC\""
       ],
@@ -953,6 +1005,7 @@
         "hash-table"
       ],
       "solution": "Count character frequencies in both strings and compare.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"anagram\", t = \"nagaram\"\nOutput: true"
       ],
@@ -971,6 +1024,7 @@
         "hash-table"
       ],
       "solution": "Group strings by their sorted character representation.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]\nOutput: [[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
       ],
@@ -989,6 +1043,7 @@
         "stack"
       ],
       "solution": "Use stack. Push opening brackets, pop when matching closing bracket.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"()\"\nOutput: true"
       ],
@@ -1007,6 +1062,7 @@
         "two-pointers"
       ],
       "solution": "Use two pointers, one from start and one from end, skip non-alphanumeric.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"A man, a plan, a canal: Panama\"\nOutput: true"
       ],
@@ -1025,6 +1081,7 @@
         "dynamic-programming"
       ],
       "solution": "Expand around centers. Check both odd and even length palindromes.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"babad\"\nOutput: \"bab\""
       ],
@@ -1043,6 +1100,7 @@
         "dynamic-programming"
       ],
       "solution": "Similar to longest palindromic substring, count all palindromes.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: s = \"abc\"\nOutput: 3"
       ],
@@ -1061,6 +1119,7 @@
         "design"
       ],
       "solution": "Encode with length prefix and delimiter. Decode by reading length first.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: [\"Hello\",\"World\"]\nOutput: \"5#Hello5#World\""
       ],
@@ -1079,6 +1138,7 @@
         "dfs"
       ],
       "solution": "Recursively calculate max depth of left and right subtrees.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [3,9,20,null,null,15,7]\nOutput: 3"
       ],
@@ -1097,6 +1157,7 @@
         "dfs"
       ],
       "solution": "Recursively compare nodes and their children.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: p = [1,2,3], q = [1,2,3]\nOutput: true"
       ],
@@ -1115,6 +1176,7 @@
         "dfs"
       ],
       "solution": "Recursively swap left and right children.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [4,2,7,1,3,6,9]\nOutput: [4,7,2,9,6,3,1]"
       ],
@@ -1133,6 +1195,7 @@
         "dynamic-programming"
       ],
       "solution": "Use DFS. For each node, calculate maximum path sum that includes that node.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [1,2,3]\nOutput: 6"
       ],
@@ -1151,6 +1214,7 @@
         "bfs"
       ],
       "solution": "Use BFS with queue to process level by level.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [3,9,20,null,null,15,7]\nOutput: [[3],[9,20],[15,7]]"
       ],
@@ -1169,6 +1233,7 @@
         "design"
       ],
       "solution": "Use preorder traversal for serialization. Parse string recursively for deserialization.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [1,2,3,null,null,4,5]\nOutput: [1,2,3,null,null,4,5]"
       ],
@@ -1187,6 +1252,7 @@
         "dfs"
       ],
       "solution": "For each node, check if subtree starting there matches subRoot.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [3,4,5,1,2], subRoot = [4,1,2]\nOutput: true"
       ],
@@ -1206,6 +1272,7 @@
         "dfs"
       ],
       "solution": "Use recursion. First element of preorder is root. Find root in inorder to split left and right subtrees.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]\nOutput: [3,9,20,null,null,15,7]"
       ],
@@ -1224,6 +1291,7 @@
         "dfs"
       ],
       "solution": "Use DFS with min and max bounds. For each node, check if value is within valid range.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [2,1,3]\nOutput: true"
       ],
@@ -1242,6 +1310,7 @@
         "dfs"
       ],
       "solution": "Use inorder traversal (gives sorted order) and count nodes.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [3,1,4,null,2], k = 1\nOutput: 1"
       ],
@@ -1260,6 +1329,7 @@
         "dfs"
       ],
       "solution": "Use BST property. If both values are smaller, go left. If both larger, go right. Otherwise, current node is LCA.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8\nOutput: 6"
       ],
@@ -1278,6 +1348,7 @@
         "design"
       ],
       "solution": "Use a TrieNode class with children map and isEnd flag.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: [\"Trie\", \"insert\", \"search\", \"search\", \"startsWith\", \"insert\", \"search\"]\nOutput: [null, null, false, true, false, null, true]"
       ],
@@ -1296,6 +1367,7 @@
         "design"
       ],
       "solution": "Use Trie with special handling for . character using DFS.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: [\"WordDictionary\",\"addWord\",\"addWord\",\"addWord\",\"search\",\"search\",\"search\",\"search\"]\nOutput: [null,null,null,null,false,true,true,true]"
       ],
@@ -1314,6 +1386,7 @@
         "backtracking"
       ],
       "solution": "Build Trie from words. Use DFS on board to find words, backtracking to avoid revisiting.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]\nOutput: [\"eat\",\"oath\"]"
       ],
@@ -1332,6 +1405,7 @@
         "heap"
       ],
       "solution": "Use min heap of size k, or use quickselect algorithm.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: nums = [3,2,1,5,6,4], k = 2\nOutput: 5"
       ],
@@ -1350,131 +1424,13 @@
         "design"
       ],
       "solution": "Use two heaps: max heap for lower half, min heap for upper half. Maintain balance.",
+      "video": "https://youtu.be/s2mb_H_15Lo?si=-aZ70uLjf3iZL4Ih",
       "examples": [
         "Input: [\"MedianFinder\", \"addNum\", \"addNum\", \"findMedian\", \"addNum\", \"findMedian\"]\nOutput: [null, null, null, 1.5, null, 2.0]"
       ],
       "codeSnippet": "class MedianFinder { maxHeap: number[]; minHeap: number[]; constructor() { this.maxHeap = []; this.minHeap = []; } addNum(num: number): void { if (this.maxHeap.length === 0 || num <= -this.maxHeap[0]) { this.maxHeap.push(-num); this.maxHeap.sort((a, b) => b - a); } else { this.minHeap.push(num); this.minHeap.sort((a, b) => a - b); } if (this.maxHeap.length > this.minHeap.length + 1) { this.minHeap.push(-this.maxHeap.shift()!); this.minHeap.sort((a, b) => a - b); } else if (this.minHeap.length > this.maxHeap.length) { this.maxHeap.push(-this.minHeap.shift()!); this.maxHeap.sort((a, b) => b - a); } } findMedian(): number { if (this.maxHeap.length === this.minHeap.length) { return (-this.maxHeap[0] + this.minHeap[0]) / 2; } return -this.maxHeap[0]; } }",
       "createdAt": "2024-01-75T00:00:00.000Z",
       "updatedAt": "2024-01-75T00:00:00.000Z"
-    },
-    {
-      "id": "76",
-      "title": "76. Design a Parking Lot System (OOP Design pattern)",
-      "description": "Design a parking lot system that can handle multiple types of vehicles and parking spots with different sizes.",
-      "category": "low-level-design",
-      "difficulty": "medium",
-      "tags": [
-        "oop",
-        "system-design",
-        "parking-lot"
-      ],
-      "solution": "Create classes for Vehicle, ParkingSpot, and ParkingLot. Use enums for vehicle types and spot sizes. Implement methods for parking, unparking, and finding available spots.",
-      "examples": [
-        "Park a car in a compact spot",
-        "Park a truck in a large spot",
-        "Find available spots for a motorcycle"
-      ],
-      "codeSnippet": "enum VehicleType { CAR, MOTORCYCLE, TRUCK }\nenum SpotSize { SMALL, COMPACT, LARGE }\nclass Vehicle { constructor(public type: VehicleType) {} }\nclass ParkingSpot { constructor(public id: number, public size: SpotSize, public isOccupied: boolean = false) {} }\nclass ParkingLot { private spots: ParkingSpot[] = []; park(vehicle: Vehicle): boolean { const spot = this.findAvailableSpot(vehicle.type); if (spot) { spot.isOccupied = true; return true; } return false; } private findAvailableSpot(type: VehicleType): ParkingSpot | null { return null; } }",
-      "createdAt": "2024-01-04T00:00:00.000Z",
-      "updatedAt": "2024-01-04T00:00:00.000Z"
-    },
-    {
-      "id": "77",
-      "title": "77. Design a LRU Cache (Hashmap + Doubly Linked List pattern)",
-      "description": "Design and implement a data structure for a Least Recently Used (LRU) cache with O(1) time complexity for get and put operations.",
-      "category": "low-level-design",
-      "difficulty": "hard",
-      "tags": [
-        "cache",
-        "doubly-linked-list",
-        "hash-table"
-      ],
-      "solution": "Use a combination of HashMap and Doubly Linked List. HashMap provides O(1) access, and Doubly Linked List maintains the order of usage.",
-      "examples": [
-        "LRUCache lRUCache = new LRUCache(2); lRUCache.put(1, 1); lRUCache.put(2, 2); lRUCache.get(1); // returns 1"
-      ],
-      "codeSnippet": "class LRUCache { capacity: number; cache: Map<number, number>; constructor(capacity: number) { this.capacity = capacity; this.cache = new Map(); } get(key: number): number { if (!this.cache.has(key)) return -1; const value = this.cache.get(key)!; this.cache.delete(key); this.cache.set(key, value); return value; } put(key: number, value: number): void { if (this.cache.has(key)) { this.cache.delete(key); } else if (this.cache.size >= this.capacity) { const firstKey = this.cache.keys().next().value; this.cache.delete(firstKey); } this.cache.set(key, value); } }",
-      "createdAt": "2024-01-05T00:00:00.000Z",
-      "updatedAt": "2024-01-05T00:00:00.000Z"
-    },
-    {
-      "id": "78",
-      "title": "78. Design a Logger System (Hashmap pattern)",
-      "description": "Design a logger system that receives stream of messages along with their timestamps. Each message should be printed if and only if it is not printed in the last 10 seconds.",
-      "category": "low-level-design",
-      "difficulty": "easy",
-      "tags": [
-        "logger",
-        "hash-table"
-      ],
-      "solution": "Use a HashMap to store the last printed timestamp for each message. Check if the current timestamp is at least 10 seconds after the last printed timestamp.",
-      "examples": [
-        "Logger logger = new Logger(); logger.shouldPrintMessage(1, \"foo\"); // returns true"
-      ],
-      "codeSnippet": "class Logger { messages: Map<string, number>; constructor() { this.messages = new Map(); } shouldPrintMessage(timestamp: number, message: string): boolean { if (!this.messages.has(message) || timestamp - this.messages.get(message)! >= 10) { this.messages.set(message, timestamp); return true; } return false; } }",
-      "createdAt": "2024-01-06T00:00:00.000Z",
-      "updatedAt": "2024-01-06T00:00:00.000Z"
-    },
-    {
-      "id": "79",
-      "title": "79. Design a URL Shortener (TinyURL) (System Design pattern)",
-      "description": "Design a service like TinyURL, a URL shortening service where you enter a URL and it returns a short URL such as tinyurl.com/4e9iAk.",
-      "category": "high-level-design",
-      "difficulty": "medium",
-      "tags": [
-        "distributed-systems",
-        "scalability",
-        "database"
-      ],
-      "solution": "Use base62 encoding for short URLs. Store mappings in a database. Use load balancers, caching (Redis), and CDN for scalability. Consider rate limiting and analytics.",
-      "examples": [
-        "Input: https://www.example.com/very/long/url\nOutput: https://tinyurl.com/abc123"
-      ],
-      "codeSnippet": "class Codec { private urlMap = new Map<string, string>(); private baseUrl = \"http://tinyurl.com/\"; private chars = \"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\"; encode(longUrl: string): string { let code = \"\"; while (!this.urlMap.has(code) && code.length < 6) { code = \"\"; for (let i = 0; i < 6; i++) { code += this.chars[Math.floor(Math.random() * this.chars.length)]; } } this.urlMap.set(code, longUrl); return this.baseUrl + code; } decode(shortUrl: string): string { const code = shortUrl.replace(this.baseUrl, \"\"); return this.urlMap.get(code) || \"\"; } }",
-      "createdAt": "2024-01-07T00:00:00.000Z",
-      "updatedAt": "2024-01-07T00:00:00.000Z"
-    },
-    {
-      "id": "80",
-      "title": "80. Design a Distributed Cache System (System Design pattern)",
-      "description": "Design a distributed caching system that can handle millions of requests per second with high availability and consistency.",
-      "category": "high-level-design",
-      "difficulty": "hard",
-      "tags": [
-        "distributed-systems",
-        "caching",
-        "consistency"
-      ],
-      "solution": "Use consistent hashing for sharding. Implement replication with leader-follower pattern. Use cache eviction policies (LRU). Add monitoring and auto-scaling.",
-      "examples": [
-        "Handle cache misses gracefully",
-        "Maintain consistency across replicas",
-        "Scale horizontally"
-      ],
-      "codeSnippet": "// Distributed Cache System Design\n// Key components:\n// 1. Consistent Hashing for sharding\n// 2. Replication with leader-follower pattern\n// 3. Cache eviction policies (LRU)\n// 4. Load balancing\n\nclass DistributedCacheNode { id: string; data: Map<string, any>; replicas: DistributedCacheNode[]; constructor(id: string) { this.id = id; this.data = new Map(); this.replicas = []; } get(key: string): any { return this.data.get(key); } set(key: string, value: any): void { this.data.set(key, value); this.replicate(key, value); } replicate(key: string, value: any): void { for (let replica of this.replicas) { replica.data.set(key, value); } } }",
-      "createdAt": "2024-01-08T00:00:00.000Z",
-      "updatedAt": "2024-01-08T00:00:00.000Z"
-    },
-    {
-      "id": "81",
-      "title": "81. Design a Chat Application (System Design pattern)",
-      "description": "Design a real-time chat application like WhatsApp or Slack that supports one-on-one and group messaging.",
-      "category": "high-level-design",
-      "difficulty": "hard",
-      "tags": [
-        "real-time",
-        "messaging",
-        "websockets"
-      ],
-      "solution": "Use WebSockets for real-time communication. Store messages in a database. Use message queues for reliability. Implement read receipts, typing indicators, and message delivery status.",
-      "examples": [
-        "Send messages in real-time",
-        "Support group chats with multiple participants",
-        "Handle offline message delivery"
-      ],
-      "codeSnippet": "// Chat Application Design\n// Key components:\n// 1. WebSocket server for real-time communication\n// 2. Message storage in database\n// 3. User presence tracking\n// 4. Message queues for reliability\n\nclass ChatMessage { id: string; senderId: string; receiverId: string; content: string; timestamp: Date; constructor(senderId: string, receiverId: string, content: string) { this.id = Math.random().toString(36); this.senderId = senderId; this.receiverId = receiverId; this.content = content; this.timestamp = new Date(); } }\n\nclass ChatService { private messages: ChatMessage[] = []; private connections = new Map<string, WebSocket>(); sendMessage(senderId: string, receiverId: string, content: string): void { const message = new ChatMessage(senderId, receiverId, content); this.messages.push(message); const receiverSocket = this.connections.get(receiverId); if (receiverSocket) { receiverSocket.send(JSON.stringify(message)); } } addConnection(userId: string, socket: WebSocket): void { this.connections.set(userId, socket); } }",
-      "createdAt": "2024-01-09T00:00:00.000Z",
-      "updatedAt": "2024-01-09T00:00:00.000Z"
     }
   ]
 }

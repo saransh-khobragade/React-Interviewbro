@@ -8,6 +8,7 @@ export interface Question {
   difficulty: 'easy' | 'medium' | 'hard';
   tags: string[];
   solution?: string;
+  video?: string;
   examples?: string[];
   codeSnippet?: string;
   createdAt: string;
@@ -21,6 +22,7 @@ export interface CreateQuestionData {
   difficulty: 'easy' | 'medium' | 'hard';
   tags: string[];
   solution?: string;
+  video?: string;
   examples?: string[];
   codeSnippet?: string;
 }
@@ -32,6 +34,7 @@ export interface UpdateQuestionData {
   difficulty?: 'easy' | 'medium' | 'hard';
   tags?: string[];
   solution?: string;
+  video?: string;
   examples?: string[];
   codeSnippet?: string;
 }
