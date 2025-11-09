@@ -66,6 +66,7 @@ export const InterviewMaterial: React.FC = () => {
     // Remove question param when manually switching tabs
     const url = new URL(window.location.href);
     url.searchParams.delete('q');
+    url.searchParams.delete('title');
     window.history.replaceState({}, '', url.toString());
     setHighlightedQuestionId(null);
     setOpenAccordion(undefined);

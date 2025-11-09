@@ -45,10 +45,24 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
       .filter(s => s.length > 0);
   };
 
+  const createTitleSlug = (title: string): string => {
+    // Remove sequence number and pattern, keep only the main title
+    // Example: "1. Two Sum (Hashmap pattern)" -> "two-sum"
+    return title
+      .replace(/^\d+\.\s*/, '') // Remove leading number and dot
+      .replace(/\s*\([^)]+\)\s*$/, '') // Remove pattern in parentheses at the end
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric with hyphens
+      .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+  };
+
   const handleShare = (e: React.MouseEvent): void => {
     e.stopPropagation(); // Prevent accordion toggle
     const url = new URL(window.location.href);
     url.searchParams.set('q', question.id);
+    const titleSlug = createTitleSlug(question.title);
+    url.searchParams.set('title', titleSlug);
     const shareUrl = url.toString();
 
     // Copy to clipboard
