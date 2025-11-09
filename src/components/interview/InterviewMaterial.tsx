@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Accordion } from '@/components/ui/accordion';
 import {
   Card,
   CardContent,
@@ -14,6 +15,7 @@ import { QuestionCard } from './QuestionCard';
 export const InterviewMaterial: React.FC = () => {
   const [activeTab, setActiveTab] = useState<QuestionCategory>('data-structures');
   const [highlightedQuestionId, setHighlightedQuestionId] = useState<string | null>(null);
+  const [openAccordion, setOpenAccordion] = useState<string | undefined>(undefined);
 
   // Read URL parameters on mount and when URL changes
   useEffect(() => {
@@ -26,6 +28,7 @@ export const InterviewMaterial: React.FC = () => {
         if (question) {
           setActiveTab(question.category);
           setHighlightedQuestionId(questionId);
+          setOpenAccordion(questionId); // Open the accordion for this question
           
           // Scroll to question after a short delay to ensure DOM is ready
           setTimeout(() => {
@@ -42,6 +45,7 @@ export const InterviewMaterial: React.FC = () => {
         }
       } else {
         setHighlightedQuestionId(null);
+        setOpenAccordion(undefined);
       }
     };
 
@@ -64,6 +68,7 @@ export const InterviewMaterial: React.FC = () => {
     url.searchParams.delete('q');
     window.history.replaceState({}, '', url.toString());
     setHighlightedQuestionId(null);
+    setOpenAccordion(undefined);
   };
 
   const getQuestionsForCategory = (category: QuestionCategory): Question[] => {
@@ -105,13 +110,21 @@ export const InterviewMaterial: React.FC = () => {
             No questions available in this category.
           </div>
         ) : (
-          questions.map(question => (
-            <QuestionCard
-              key={question.id}
-              question={question}
-              isHighlighted={highlightedQuestionId === question.id}
-            />
-          ))
+          <Accordion 
+            type='single' 
+            collapsible 
+            className='w-full'
+            value={openAccordion ?? ''}
+            onValueChange={(value) => setOpenAccordion(value || undefined)}
+          >
+            {questions.map(question => (
+              <QuestionCard
+                key={question.id}
+                question={question}
+                isHighlighted={highlightedQuestionId === question.id}
+              />
+            ))}
+          </Accordion>
         )}
       </div>
     );
