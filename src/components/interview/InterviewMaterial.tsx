@@ -11,11 +11,27 @@ import {
 import { questionService } from '@/services/questionService';
 import type { Question, QuestionCategory } from '@/types/interview';
 import { QuestionCard } from './QuestionCard';
+import { useMetaTags } from '@/hooks/useMetaTags';
 
 export const InterviewMaterial: React.FC = () => {
   const [activeTab, setActiveTab] = useState<QuestionCategory>('data-structures');
   const [highlightedQuestionId, setHighlightedQuestionId] = useState<string | null>(null);
   const [openAccordion, setOpenAccordion] = useState<string | undefined>(undefined);
+  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
+
+  // Update meta tags based on current question
+  useMetaTags({
+    title: currentQuestion 
+      ? `${currentQuestion.title} | Interviewbro`
+      : 'Interviewbro - Interview Preparation Platform',
+    description: currentQuestion 
+      ? `${currentQuestion.description} - Practice this coding interview question with solutions, code snippets, and video explanations.`
+      : 'Master coding interviews with 75+ data structures questions, low-level design, and high-level system design problems. Practice with solutions, code snippets, and video explanations.',
+    url: currentQuestion 
+      ? window.location.href
+      : window.location.origin,
+    image: '/og-image.png', // Default OG image
+  });
 
   // Read URL parameters on mount and when URL changes
   useEffect(() => {
@@ -29,6 +45,7 @@ export const InterviewMaterial: React.FC = () => {
           setActiveTab(question.category);
           setHighlightedQuestionId(questionId);
           setOpenAccordion(questionId); // Open the accordion for this question
+          setCurrentQuestion(question); // Set current question for meta tags
           
           // Scroll to question after a short delay to ensure DOM is ready
           setTimeout(() => {
@@ -46,6 +63,7 @@ export const InterviewMaterial: React.FC = () => {
       } else {
         setHighlightedQuestionId(null);
         setOpenAccordion(undefined);
+        setCurrentQuestion(null); // Clear current question
       }
     };
 
@@ -70,6 +88,7 @@ export const InterviewMaterial: React.FC = () => {
     window.history.replaceState({}, '', url.toString());
     setHighlightedQuestionId(null);
     setOpenAccordion(undefined);
+    setCurrentQuestion(null); // Clear current question
   };
 
   const getQuestionsForCategory = (category: QuestionCategory): Question[] => {
